@@ -1,6 +1,8 @@
 # Grunge 
 Grunge is a portfolio Astro theme with a grunge aesthetic, perfect for developers, designers and any other creative who wants to stand out and show their love for the 90s music scene. 
 
+Read [**changelog here**](https://jessgaspar.dev/changelog/grunge). 
+
 ## Tech stack
 - Astro
 - Tailwind v4
