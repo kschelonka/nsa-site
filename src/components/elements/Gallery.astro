@@ -22,12 +22,13 @@ const slides = Object.entries(images)
   }))
 ---
 <Splide
-  class='not-content'
+  class='not-content gallery-splide'
   options={ {
     type: 'loop',
     interval: 3000,
     autoplay: true,
     pauseOnHover: true,
+    pagination: false,
   } }
 >
   {slides.map((slide) => (
@@ -77,4 +78,31 @@ const slides = Object.entries(images)
     color: inherit;
     text-decoration: underline;
   }
+
+  /* On small/touch screens, hide the arrows until the user taps.
+     Uses :global() because Splide renders this markup in a child component,
+     so the scoped-style hash never lands on these elements. */
+  @media (max-width: 640px) {
+    :global(.gallery-splide .splide__arrows) {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+    :global(.gallery-splide.controls-visible .splide__arrows) {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
 </style>
+
+<script>
+  // Reveal the carousel controls on tap, then auto-hide after a few seconds.
+  document.querySelectorAll<HTMLElement>('.gallery-splide').forEach((gallery) => {
+    let timer: ReturnType<typeof setTimeout>
+    gallery.addEventListener('pointerup', () => {
+      gallery.classList.add('controls-visible')
+      clearTimeout(timer)
+      timer = setTimeout(() => gallery.classList.remove('controls-visible'), 3000)
+    })
+  })
+</script>
