@@ -3,23 +3,22 @@
 import Container from "../../elements/Container.astro"
 import Text from "../../elements/Text.astro"
 import Heading from "../../elements/Heading.astro"
-import ImageContainer from "../../elements/ImageContainer.astro"
 import Link from "../../elements/Link.astro"
 
 // assets
-import peter from "../../../assets/images/peter.jpg";
+import Gallery from "../../elements/Gallery.astro"
 ---
 
-<Container variant={"xl"} class="flex flex-col gap-8 min-h-screen">
-    <Text variant={'xl'} class="text-base-900 lg:max-w-1/3 md:max-w-1/2 w-full">Hey there! I specialize in crafting unique, eye-catching designs that help small businesses like yours stand out in a crowded market.</Text>
+<Container variant={"full"} class="flex flex-col gap-8 min-h-screen xl:max-w-8/10">
+    <Text variant={'xl'} class="text-base-900 lg:max-w-1/3 md:max-w-1/2 w-full">Seattle's ORIGINAL improvised puppet show for grownups. An improvised fever dream with googly eyes and lots of laughter. Shows every second Saturday.</Text>
     <Container class="flex md:flex-row flex-col gap-8">
         <Container class="md:flex-2 flex flex-col items-start gap-4">
-            <Link variant={'button'} href="/contact">Available for work</Link>
-            <Heading tagName="h1" tagSize="h1">Peter Jones</Heading>
+            <Link variant={'big-button'} href="https://www.eventbrite.com/e/no-strings-attached-an-improvised-puppet-show-for-grownups-tickets-1977532447785">Tickets</Link>
+            <Heading tagName="h1" tagSize="h1">No Strings Attached</Heading>
         </Container>
-        <Container class="h-full md:h-[500px] flex-1">
-            <ImageContainer src={peter} alt="Peter Jones" />
-        </Container>
+    </Container>
+    <Container class="h-full md:h-[500px] flex-1">
+        <Gallery/>
     </Container>
 </Container>
 
