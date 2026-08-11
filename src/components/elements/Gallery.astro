@@ -88,7 +88,16 @@ const slides = Object.entries(images)
       pointer-events: none;
       transition: opacity 0.25s ease;
     }
+    :global(.gallery-splide figcaption) {
+      opacity: 0;
+      pointer-events: none;
+    }
     :global(.gallery-splide.controls-visible .splide__arrows) {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    :global(.gallery-splide.controls-visible figcaption) {
       opacity: 1;
       pointer-events: auto;
     }
